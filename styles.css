@@ -81,22 +81,56 @@ li {
   text-align: center;
 }
 
+.project {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: white;
+}
+
+.projects-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
 .projects-list {
   display: flex;
+  width: 100%;
 }
 
 .img-container {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  flex: 0 0 calc(100% / 3);
+  transition: transform 0.3s ease-in-out;
 }
 
 .img-container img {
-  max-width: 50%;
+  max-width: 100%;
   object-fit: contain;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #f7e989;
+  color: #404146;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.prev-button {
+  left: 0;
+}
+
+.next-button {
+  right: 0;
 }
 
 .contact {
@@ -140,4 +174,75 @@ li {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.popup-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.popup-description {
+  font-size: 16px;
+}
+
+.error-message {
+  display: none;
+  color: red;
+  margin-top: 5px;
+}
+
+.accordion-btn {
+  background-color: #f5f5f5;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+  font-weight: bold;
+}
+
+.accordion-content {
+  display: none;
+  padding: 10px;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+}
+
+@media screen and (max-width: 1000px) {
+  .projects-slider {
+    transform: scale(0.5);
+  }
 }
